@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Stores</title>
+  <style>
+    /* Beginner habit: Putting everything in one style tag and using basic fonts */
+    body {
+      font-family: "Arial", sans-serif;
+      background-color: white;
+      color: #333;
+    }
+
+    h1{
+      padding: 40px 0;
+      font-weight: 100;
+      text-align: center;
+    }
+
+    /* Main Wrapper */
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    /* --- HEADQUARTER SECTION --- */
+    .headquarter-card {
+        border: 1px solid #ddd;
+        border-radius: 20px;
+        padding: 30px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .headquarter-card h2 {
+        margin-bottom: 30px;
+        font-weight: normal;
+    }
+
+    .hq-details {
+        display: flex;
+        justify-content: center;
+        gap: 50px; /* Space between items */
+        flex-wrap: wrap;
+    }
+
+    .info-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #aaa; /* Light gray text */
+        font-size: 14px;
+    }
+
+    /* --- LOCATIONS GRID SECTION --- */
+    .locations-grid {
+        display: flex;
+        flex-wrap: wrap; /* This makes them drop to next line */
+        justify-content: space-between;
+    }
+
+    .location-card {
+        border: 1px solid #ddd;
+        border-radius: 20px;
+        padding: 30px;
+        width: 48%; /* Beginner trick to make 2 cols */
+        margin-bottom: 30px;
+    }
+
+    .location-card h2 {
+        margin-bottom: 20px;
+        font-weight: normal;
+    }
+
+    .location-items {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* Icon Styling */
+    svg {
+        width: 24px;
+        height: 24px;
+        /* The specific green color from the image */
+        stroke: #37d137;
+        stroke-width: 2;
+        fill: none;
+    }
+
+    /* Responsive fix for mobile phones */
+    @media (max-width: 768px) {
+        .location-card {
+            width: 100%;
+        }
+        .hq-details {
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+    }
+    
+  </style>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <div class="top-bar">
+        <div class="container flex-between">
+            <span>+998 90 999 99 99 | Locations</span>
+            <div class="top-links">
+                <a href="about.html">About</a>
+                <a href="checkout.html">Delivery</a>
+                <a href="about.html">Warranty</a>
+                <a href="support.html">Q&A</a>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container flex-between">
+            <div class="logo">Tech <span>House</span></div>
+            
+            <a href="catalog.html">
+              <button class="catalog-btn">Catalog</button>
+            </a>
+            
+            <div class="search-container">
+                <input type="text" placeholder="Search...">
+                <button class="search-btn"><img src="/assets/images/Search.png" alt="" width="22" height="22"></button>
+            </div>
+
+            <div class="nav-icons">
+                <a href="cart.html"><img src="/assets/images/Heart.png" alt="" width="22" height="22"></a>
+                <a href="cart.html"><img src="/assets/images/Shopping cart.png" alt="" width="22" height="22"></a>
+                <a href="profile.html"><img src="/assets/images/User.png" alt="" width="22" height="22"></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="sub-nav">
+        <div class="container">
+            <a href="index.html">HOME</a>
+            <a href="support.html">CONTACT US</a>
+            <a href="membership.html">MEMBERSHIP</a>
+            <a href="comparison.html">COMPARE</a>
+            <a href="locations.html">LOCATIONS</a>
+        </div>
+    </div>
+    <!-- NAVBAR -->
+
+    <h1>Find a Store</h1>
+    
+    <div class="container">
+      
+        <div class="headquarter-card">
+            <h2>Headquarter</h2>
+            <div class="hq-details">
+                <div class="info-item">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span>Tashkent Silicon Valley zip 91</span>
+                </div>
+                <div class="info-item">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.05 12.05 0 0 0 .57 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.03 12.03 0 0 0 2.81.57A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    <span>(90) 123-45-67</span>
+                </div>
+                <div class="info-item">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <span>09:00 - 21:00</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="locations-grid">
+            
+            <div class="location-card">
+                <h2>Location 1</h2>
+                <div class="location-items">
+                    <div class="info-item">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <span>Tashkent Silicon Valley zip 91</span>
+                    </div>
+                    <div class="info-item">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        <span>09:00 - 21:00</span>
+                    </div>
+                    <div class="info-item">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.05 12.05 0 0 0 .57 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.03 12.03 0 0 0 2.81.57A2 2 0 0 1 22 16.92z"></path></svg>
+                        <span>(90) 123-45-67</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="location-card">
+                <h2>Location 2</h2>
+                <div class="location-items">
+                    <div class="info-item">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <span>Tashkent Silicon Valley zip 91</span>
+                    </div>
+                    <div class="info-item">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        <span>09:00 - 21:00</span>
+                    </div>
+                    <div class="info-item">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.05 12.05 0 0 0 .57 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.03 12.03 0 0 0 2.81.57A2 2 0 0 1 22 16.92z"></path></svg>
+                        <span>(90) 123-45-67</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="location-card">
+                <h2>Location 3</h2>
+                <div class="location-items">
+                    <div class="info-item">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <span>Tashkent Silicon Valley zip 91</span>
+                    </div>
+                    <div class="info-item">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        <span>09:00 - 21:00</span>
+                    </div>
+                    <div class="info-item">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.05 12.05 0 0 0 .57 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.03 12.03 0 0 0 2.81.57A2 2 0 0 1 22 16.92z"></path></svg>
+                        <span>(90) 123-45-67</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="location-card">
+                <h2>Location 4</h2>
+                <div class="location-items">
+                    <div class="info-item">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <span>Tashkent Silicon Valley zip 91</span>
+                    </div>
+                    <div class="info-item">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        <span>09:00 - 21:00</span>
+                    </div>
+                    <div class="info-item">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.05 12.05 0 0 0 .57 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.03 12.03 0 0 0 2.81.57A2 2 0 0 1 22 16.92z"></path></svg>
+                        <span>(90) 123-45-67</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+      <!-- FOOTER -->
+    <div class="footer">
+        <div class="footer-col">
+            <div class="logo" style="font-size: 20px;">
+                Tech
+                <span style="color: #4CAF50;">House</span>
+            </div>
+            <span>For any type of inquiries</span>
+            <span class="bold-text">+998 90 999 99 99</span>
+            <span>Working Shift</span>
+            <span class="bold-text">Everyday: 08:00 - 00:00</span>
+            <span>Tashkent Center 123 W index-12</span>
+        </div>
+
+        <div class="footer-col">
+            <h3>Categories</h3>
+            <a href="#">Kitchen Appliances</a>
+            <a href="#">Cleaning Appliances</a>
+            <a href="#">Heating and Cooling</a>
+            <a href="#">Personal Care devices</a>
+            <a href="#">Smart Home</a>
+        </div>
+
+        <div class="footer-col">
+            <h3>Company</h3>
+            <a href="#">About Us</a>
+            <a href="#">Product Warranties</a>
+            <a href="#">Special Offers</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Store Locations</a>
+        </div>
+
+        <div class="footer-col">
+            <h3>Social Media</h3>
+            <a href="#">Instagram</a>
+            <a href="#">YouTube</a>
+            <a href="#">Telegram</a>
+            <a href="#">Facebook</a>
+            <a href="#">TikTok</a>
+        </div>
+    </div>
+    <!-- FOOTER -->
+    <script src="/assets/js/script.js"></script>
+</body>
+</html>

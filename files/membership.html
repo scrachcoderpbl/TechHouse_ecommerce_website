@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership - Tech House</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* --- RESET & DEFAULTS --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* --- MEMBERSHIP SECTION --- */
+        
+        .membership-wrapper {
+            padding: 50px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .join-header {
+            font-size: 26px;
+            font-weight: normal;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #000;
+            line-height: 1.4;
+        }
+
+        /* Helper colors */
+        .green-word, .green-text { color: #4CAF50; }
+        .bronze-text { color: #cd7f32; }
+        .silver-text { color: #a9a9a9; }
+        .gold-text { color: #eebb00; }
+
+        /* The container for the rows */
+        .tiers-flex {
+            display: flex; 
+            justify-content: center;
+            gap: 30px; 
+            width: 100%;
+            margin-bottom: 30px; /* Add space between the two rows */
+        }
+
+        /* Individual Membership Box */
+        .tier-block {
+            border: 1px solid #e0e0e0;
+            border-radius: 20px;
+            padding: 30px;
+            background-color: white;
+            flex: 1; /* Grow to fill space */
+            max-width: 500px; /* Don't get too wide */
+            min-width: 300px; /* Minimum width before wrapping/stacking */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Added subtle shadow */
+            transition: transform 0.3s ease;
+        }
+
+        .tier-title {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        /* Perks list */
+        .perks-list {
+            display: flex;
+            flex-wrap: wrap; 
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .perk-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            width: 48%; /* fit 2 per row inside the card */
+        }
+
+        .perk-item p {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.4;
+        }
+
+        .check-mark {
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 1; 
+            flex-shrink: 0; /* Prevents checkmark from squishing */
+        }
+
+        /* Button */
+        .join-btn {
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            padding: 12px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            cursor: pointer;
+            transition: 0.3s;
+            background: #f9f9f9;
+        }
+
+        .join-btn:hover {
+            color: white;
+            background-color: #000;
+            border-color: #000;
+        }
+
+        /* =========================================
+           RESPONSIVE MEDIA QUERIES
+           ========================================= */
+
+        /* Tablet (max-width: 900px) */
+        @media (max-width: 900px) {
+            .perk-item {
+                width: 100%; /* Make perks stack vertically inside card to save space */
+            }
+            .tier-block {
+                min-height: auto; /* Allow height to adjust to content */
+            }
+        }
+
+        /* Mobile (max-width: 768px) */
+        @media (max-width: 768px) {
+            .tiers-flex {
+                flex-direction: column; /* Stack the cards vertically */
+                align-items: center;
+                gap: 20px;
+                margin-bottom: 20px;
+            }
+
+            .tier-block {
+                width: 100%; /* Full width */
+                min-width: 0; /* Remove min-width restriction */
+                max-width: 100%;
+            }
+
+            .membership-wrapper {
+                padding: 30px 20px;
+            }
+
+            .join-header {
+                font-size: 22px;
+            }
+            
+            .perk-item {
+                width: 100%; /* Ensure perks take full width */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="container flex-between">
+            <span>+998 90 999 99 99 | Locations</span>
+            <div class="top-links">
+                <a href="about.html">About</a>
+                <a href="checkout.html">Delivery</a>
+                <a href="about.html">Warranty</a>
+                <a href="support.html">Q&A</a>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container flex-between">
+            <div class="logo">Tech <span>House</span></div>
+            
+            <a href="catalog.html">
+                <button class="catalog-btn">Catalog</button>
+            </a>
+            
+            <div class="search-container">
+                <input type="text" placeholder="Search...">
+                <button class="search-btn"><img src="/assets/images/Search.png" alt="" width="22" height="22"></button>
+            </div>
+
+            <div class="nav-icons">
+                <a href="cart.html"><img src="/assets/images/Heart.png" alt="" width="22" height="22"></a>
+                <a href="cart.html"><img src="/assets/images/Shopping cart.png" alt="" width="22" height="22"></a>
+                <a href="profile.html"><img src="/assets/images/User.png" alt="" width="22" height="22"></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="sub-nav">
+        <div class="container">
+            <a href="index.html">HOME</a>
+            <a href="support.html">CONTACT US</a>
+            <a href="membership.html">MEMBERSHIP</a>
+            <a href="comparison.html">COMPARE</a>
+            <a href="locations.html">LOCATIONS</a>
+        </div>
+    </div>
+    <div class="membership-wrapper">
+            
+            <h2 class="join-header">Become our <span class="green-word">member</span> and get special offers/perks!</h2>
+    
+            <div class="tiers-flex">
+    
+                <div class="tier-block">
+                    <h2 class="tier-title bronze-text">Bronze</h2>
+                    
+                    <div class="perks-list">
+                        <div class="perk-item">
+                            <span class="check-mark">✔</span>
+                            <p>Basic loyalty points</p>
+                        </div>
+                        <div class="perk-item">
+                            <span class="check-mark">✔</span>
+                            <p>Access to selected discounts</p>
+                        </div>
+                    </div>
+    
+                    <div class="join-btn">
+                        Become a <span class="green-word">member</span>
+                    </div>
+                </div>
+    
+                <div class="tier-block">
+                    <h2 class="tier-title silver-text">Silver</h2>
+                    
+                    <div class="perks-list">
+                        <div class="perk-item">
+                            <span class="check-mark">✔</span>
+                            <p>Increased loyalty points</p>
+                        </div>
+                        <div class="perk-item">
+                            <span class="check-mark">✔</span>
+                            <p>Monthly exclusive offers</p>
+                        </div>
+                        <div class="perk-item">
+                            <span class="check-mark">✔</span>
+                            <p>Priority customer support</p>
+                        </div>
+                        <div class="perk-item">
+                            <span class="check-mark">✔</span>
+                            <p>Everything in <span class="bronze-text">Bronze</span></p>
+                        </div>
+                    </div>
+    
+                    <div class="join-btn">
+                        Become a <span class="green-word">member</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tiers-flex">
+                <div class="tier-block">
+                    <h2 class="tier-title gold-text">Gold</h2>
+                    
+                    <div class="perks-list">
+                        <div class="perk-item">
+                            <span class="check-mark">✔</span>
+                            <p>Highest loyalty rewards</p>
+                        </div>
+                        <div class="perk-item">
+                            <span class="check-mark">✔</span>
+                            <p>Highest loyalty rewards</p>
+                        </div>
+                        <div class="perk-item">
+                            <span class="check-mark">✔</span>
+                            <p>Free delivery</p>
+                        </div>
+                        <div class="perk-item">
+                            <span class="check-mark">✔</span>
+                            <p>Everything in Silver</p>
+                        </div>
+                    </div>
+    
+                    <div class="join-btn">
+                        Become a <span class="green-word">member</span>
+                    </div>
+                </div>
+    
+                <div class="tier-block">
+                    <h2 class="tier-title green-text">Business Package</h2>
+                    
+                    <div class="perks-list">
+                        <div class="perk-item">
+                            <span class="check-mark">✔</span>
+                            <p>Highest loyalty rewards</p>
+                        </div>
+                        <div class="perk-item">
+                            <span class="check-mark">✔</span>
+                            <p>Early Access to new products</p>
+                        </div>
+                        <div class="perk-item">
+                            <span class="check-mark">✔</span>
+                            <p>Free delivery</p>
+                        </div>
+                        <div class="perk-item">
+                            <span class="check-mark">✔</span>
+                            <p>Everything in <span class="gold-text">Gold</span></p>
+                        </div>
+                    </div>
+    
+                    <div class="join-btn">
+                        Become a <span class="green-word">member</span>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-col">
+            <div class="logo" style="font-size: 20px;">
+                Tech<br><span style="color: #4CAF50;">House</span>
+            </div>
+            <span>For any type of inquiries</span>
+            <span class="bold-text">+998 90 999 99 99</span>
+            <span>Working Shift</span>
+            <span class="bold-text">Everyday: 08:00 - 00:00</span>
+            <span>Tashkent Center 123 W index-12</span>
+        </div>
+
+        <div class="footer-col">
+            <h3>Categories</h3>
+            <a href="#">Kitchen Appliances</a>
+            <a href="#">Cleaning Appliances</a>
+            <a href="#">Heating and Cooling</a>
+            <a href="#">Personal Care devices</a>
+            <a href="#">Smart Home</a>
+        </div>
+
+        <div class="footer-col">
+            <h3>Company</h3>
+            <a href="#">About Us</a>
+            <a href="#">Product Warranties</a>
+            <a href="#">Special Offers</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Store Locations</a>
+        </div>
+
+        <div class="footer-col">
+            <h3>Social Media</h3>
+            <a href="#">Instagram</a>
+            <a href="#">YouTube</a>
+            <a href="#">Telegram</a>
+            <a href="#">Facebook</a>
+            <a href="#">TikTok</a>
+        </div>
+    </div>
+    <script src="/assets/js/script.js"></script>
+</body>
+</html>

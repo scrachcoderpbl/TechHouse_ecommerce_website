@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare Products - Tech House</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* --- RESET & DEFAULTS --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: white;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* --- PAGE CONTAINER --- */
+        .container2 {
+            max-width: 1200px;
+            margin: 40px auto;
+            text-align: center;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        /* --- SCROLLABLE WRAPPER --- */
+        /* This enables horizontal scrolling on mobile */
+        .compare-wrapper {
+            overflow-x: auto;
+            padding-bottom: 20px; /* Space for scrollbar */
+            /* Hide scrollbar for cleaner look (optional) */
+            scrollbar-width: thin;
+        }
+
+        /* Ensure content is wide enough to scroll */
+        .compare-content {
+            display: inline-block;
+            min-width: 100%; /* Take full width */
+            padding: 0 10px;
+        }
+
+        /* --- CARDS ROW --- */
+        .cards-row {
+            display: flex;
+            justify-content: center; /* Center on desktop */
+            gap: 20px;
+            margin-bottom: 30px;
+            min-width: max-content; /* Force row to be as wide as its content */
+        }
+
+        /* Common widths for alignment */
+        .product-card, .add-card, .col {
+            width: 200px;  /* Base width */
+            min-width: 180px; /* Don't shrink below this */
+        }
+
+        .product-card {
+            border: 1px solid #eee;
+            border-radius: 20px;
+            padding: 20px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: white;
+            transition: transform 0.2s;
+        }
+
+        .add-card {
+            border: 2px dashed #ddd; /* Dashed look for 'add' */
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            background: #fafafa;
+            cursor: pointer;
+            height: auto; /* Match height of product card */
+            min-height: 280px;
+        }
+
+        .product-img {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        .product-name {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            height: 40px; /* Fixed height for alignment */
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .price {
+            color: #2ecc71;
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .add-btn {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .add-btn:hover {
+            background-color: #333;
+            color: white;
+            border-color: #333;
+        }
+
+        .plus-circle {
+            width: 50px;
+            height: 50px;
+            border: 2px solid #ccc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #ccc;
+            font-weight: bold;
+        }
+
+        /* --- COMPARISON TABLE --- */
+        .comparison-table {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: max-content; /* Ensure table stretches with cards */
+        }
+
+        .table-row {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+        }
+        
+        .col {
+            text-align: center;
+            font-size: 15px;
+            color: #555;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stars {
+            font-size: 18px;
+            color: #f1c40f; /* Yellow stars */
+            letter-spacing: 2px;
+        }
+        
+        .green-text {
+            color: #2ecc71;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* Feature Labels (First column hidden visually but structured?) 
+           In this design, labels seem to be implicit. If you want a label column, 
+           we would add a sticky left column. For now, matching the image. 
+        */
+
+        /* =========================================
+           RESPONSIVE MEDIA QUERIES
+           ========================================= */
+
+        /* Mobile (max-width: 900px) */
+        @media (max-width: 900px) {
+            .cards-row, .table-row {
+                justify-content: flex-start; /* Align left to allow scrolling */
+            }
+            
+            .container2 {
+                padding: 0; /* Maximize space */
+            }
+
+            .compare-wrapper {
+                padding-left: 20px; /* Add padding inside scroll container */
+                padding-right: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+                margin-top: 20px;
+            }
+
+            /* Optional: Hide empty 'Add Item' cards on small mobile to save space */
+            .add-card:last-child {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="container flex-between">
+            <span>+998 90 999 99 99 | Locations</span>
+            <div class="top-links">
+                <a href="about.html">About</a>
+                <a href="checkout.html">Delivery</a>
+                <a href="about.html">Warranty</a>
+                <a href="support.html">Q&A</a>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container flex-between">
+            <div class="logo">Tech <span>House</span></div>
+            
+            <a href="catalog.html">
+                <button class="catalog-btn">Catalog</button>
+            </a>
+            
+            <div class="search-container">
+                <input type="text" placeholder="Search...">
+                <button class="search-btn"><img src="/assets/images/Search.png" alt="search icon" width="22" height="22"></button>
+            </div>
+
+            <div class="nav-icons">
+                <a href="cart.html"><img src="/assets/images/Heart.png" alt="wishlist" width="22" height="22"></a>
+                <a href="cart.html"><img src="/assets/images/Shopping cart.png" alt="cart button" width="22" height="22"></a>
+                <a href="profile.html"><img src="/assets/images/User.png" alt="profile icon" width="22" height="22"></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="sub-nav">
+        <div class="container">
+            <a href="index.html">HOME</a>
+            <a href="support.html">CONTACT US</a>
+            <a href="membership.html">MEMBERSHIP</a>
+            <a href="comparison.html">COMPARE</a>
+            <a href="locations.html">LOCATIONS</a>
+        </div>
+    </div>
+    <div class="container2">
+        <h1>Compare Products</h1>
+
+        <div class="compare-wrapper">
+            <div class="compare-content">
+                
+                <div class="cards-row">
+                    <div class="product-card">
+                        <img src="/assets/images/vacuum.jpeg" alt="Vacuum" class="product-img">
+                        <span class="product-name">Samsung Jet 75</span>
+                        <span class="price">$167</span>
+                        <button class="add-btn">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="/assets/images/vacuum.jpeg" alt="Vacuum" class="product-img">
+                        <span class="product-name">Dyson V15 Detect</span>
+                        <span class="price">$229</span>
+                        <button class="add-btn">Add to Cart</button>
+                    </div>
+
+                    <div class="add-card">
+                        <div class="plus-circle">+</div>
+                        <span>Add Product</span>
+                    </div>
+
+                    <div class="add-card">
+                        <div class="plus-circle">+</div>
+                        <span>Add Product</span>
+                    </div>
+                </div>
+
+                <div class="comparison-table">
+                    
+                    <div class="table-row"> 
+                        <div class="col">Vacuum Cleaner</div>
+                        <div class="col">Vacuum Cleaner</div>
+                        <div class="col"></div> 
+                        <div class="col"></div>
+                    </div>
+
+                    <div class="table-row">
+                        <div class="col">
+                            <div style="font-weight:bold;">4.5</div>
+                            <div class="stars">★★★★☆</div>
+                        </div>
+                        <div class="col">
+                            <div style="font-weight:bold;">5.0</div>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                        <div class="col"></div>
+                        <div class="col"></div>
+                    </div>
+
+                    <div class="table-row">
+                        <div class="col">200W Suction</div>
+                        <div class="col">240W Suction</div>
+                        <div class="col"></div>
+                        <div class="col"></div>
+                    </div>
+
+                    <div class="table-row">
+                        <div class="col">60 min battery</div>
+                        <div class="col">60 min battery</div>
+                        <div class="col"></div>
+                        <div class="col"></div>
+                    </div>
+
+                    <div class="table-row">
+                        <div class="col">2.7 kg</div>
+                        <div class="col">3.1 kg</div>
+                        <div class="col"></div>
+                        <div class="col"></div>
+                    </div>
+
+                     <div class="table-row">
+                        <div class="col">LCD Display</div>
+                        <div class="col">LCD + Laser</div>
+                        <div class="col"></div>
+                        <div class="col"></div>
+                    </div>
+
+                     <div class="table-row">
+                        <div class="col">0.8L Bin</div>
+                        <div class="col">0.77L Bin</div>
+                        <div class="col"></div>
+                        <div class="col"></div>
+                    </div>
+
+                     <div class="table-row">
+                        <div class="col">2022 Model</div>
+                        <div class="col">2023 Model</div>
+                        <div class="col"></div>
+                        <div class="col"></div>
+                    </div>
+
+                    <div class="table-row" style="border-bottom: none;">
+                        <div class="col green-text">$167</div>
+                        <div class="col green-text">$229</div>
+                        <div class="col"></div>
+                        <div class="col"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <div class="footer-col">
+            <div class="logo" style="font-size: 20px;">
+                Tech
+                <span style="color: #4CAF50;">House</span>
+            </div>
+            <span>For any type of inquiries</span>
+            <span class="bold-text">+998 90 999 99 99</span>
+            <span>Working Shift</span>
+            <span class="bold-text">Everyday: 08:00 - 00:00</span>
+            <span>Tashkent Center 123 W index-12</span>
+        </div>
+
+        <div class="footer-col">
+            <h3>Categories</h3>
+            <a href="#">Kitchen Appliances</a>
+            <a href="#">Cleaning Appliances</a>
+            <a href="#">Heating and Cooling</a>
+            <a href="#">Personal Care devices</a>
+            <a href="#">Smart Home</a>
+        </div>
+
+        <div class="footer-col">
+            <h3>Company</h3>
+            <a href="#">About Us</a>
+            <a href="#">Product Warranties</a>
+            <a href="#">Special Offers</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Store Locations</a>
+        </div>
+
+        <div class="footer-col">
+            <h3>Social Media</h3>
+            <a href="#">Instagram</a>
+            <a href="#">YouTube</a>
+            <a href="#">Telegram</a>
+            <a href="#">Facebook</a>
+            <a href="#">TikTok</a>
+        </div>
+    </div>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
