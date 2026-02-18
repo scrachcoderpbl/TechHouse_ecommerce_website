@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samsung Product Page - Responsive</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- RESET & DEFAULTS --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* --- LAYOUT CONTAINERS --- */
+        .product-container {
+            display: flex;
+            background-color: white;
+            padding: 50px 20px;
+            width: 100%;            /* Changed from fixed px */
+            max-width: 1200px;      /* Standard max width */
+            gap: 40px;
+            border-bottom: 1px solid #ccc;
+            align-self: center;
+            justify-content: center;
+        }
+
+        .product-description {
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            padding: 50px 20px;
+            width: 100%;
+            max-width: 1200px;
+            gap: 20px;
+            align-self: center;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .product-description p {
+            color: grey;
+        }
+
+        /* --- COLUMN 1: GALLERY --- */
+        .gallery-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 300px; /* Prevents it from getting too small */
+        }
+
+        .main-image-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .main-image {
+            width: 100%;        /* Fluid width */
+            max-width: 350px;   /* Max limit */
+            height: auto;
+            object-fit: contain;
+        }
+
+        .arrow {
+            font-size: 30px;
+            cursor: pointer;
+            color: #333;
+            user-select: none;
+        }
+
+        .thumbnails {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .thumb {
+            width: 70px;
+            height: 70px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 5px;
+            object-fit: contain;
+            cursor: pointer;
+        }
+        .thumb:hover { border-color: #333; }
+
+        /* --- COLUMN 2: INFO --- */
+        .info-section {
+            flex: 1.5;
+            min-width: 300px;
+        }
+
+        .btn-cart
+
+        .product-title {
+            font-weight: 200;
+            font-size: 32px; /* Increased slightly */
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .rating {
+            color: #2ecc71;
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        .rating span {
+            color: #333;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+
+        .section-title {
+            font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .specs {
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .spec-row {
+            display: flex;
+            margin-bottom: 12px;
+            font-size: 16px;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 5px;
+        }
+
+        .spec-label {
+            color: #888;
+            width: 120px;
+            flex-shrink: 0;
+        }
+
+        .spec-value {
+            color: #333;
+            font-weight: 600;
+        }
+
+        .colors {
+            display: flex;
+            gap: 15px;
+        }
+
+        .color-dot {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .color-dot:hover { transform: scale(1.1); }
+
+        .white { background-color: white; border: 1px solid #ccc; }
+        .black { background-color: black; }
+        .tan { background-color: #c9ad8d; }
+
+        /* --- COLUMN 3: CARD --- */
+        .card-section {
+            flex: 1;
+            min-width: 280px;
+            border: 1px solid #eee;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            height: fit-content;
+            background: white;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .price-label { font-size: 18px; color: #555; }
+        .price-value { font-size: 28px; color: #2ecc71; font-weight: bold; }
+        .discount-value { color: #ff4d4d; font-size: 18px; font-weight: bold; background: #ffebeb; padding: 5px 10px; border-radius: 10px; }
+
+        .btn-buy {
+            background-color: #32d74b;
+            color: white;
+            border: 2px solid #32d74b;
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 15px;
+            transition: 0.3s;
+            width: 100%;
+        }
+
+        .btn-buy:hover {
+            color: #32d74b;
+            background-color: white;
+        }
+
+        .cart-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .btn-cart {
+            flex: 1;
+            background: white;
+            border: 2px solid #eee;
+            padding: 12px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .add-btn{
+            color: black;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: 0.3s;
+            border: none;
+            background-color: transparent;
+        }
+
+        .btn-cart:hover {
+            background-color: #333;
+            color: white;
+            border-color: #333;
+            .add-btn{
+                color: white;
+            }
+        }
+
+        .heart-icon {
+            padding: 10px;
+            border: 2px solid #eee;
+            border-radius: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .heart-icon:hover { background-color: #fff0f0; border-color: #ffcccc; }
+
+        .status-info {
+            font-size: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            color: #666;
+            margin-top: 10px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* =========================================
+           RESPONSIVE MEDIA QUERIES
+           ========================================= */
+
+        /* Tablet (max-width: 1024px) */
+        @media (max-width: 1024px) {
+            .product-container {
+                flex-wrap: wrap; /* Allows columns to wrap */
+                justify-content: center;
+            }
+
+            .info-section {
+                order: 1; /* Info first? Or Gallery first? Default is fine. */
+                flex: 1 1 50%; /* Take up half width */
+                padding-right: 20px;
+            }
+
+            .gallery-section {
+                flex: 1 1 40%;
+            }
+            
+            .card-section {
+                flex: 1 1 100%; /* Card drops to bottom and takes full width */
+                flex-direction: row; /* Make card horizontal on tablet? */
+                justify-content: space-around;
+                align-items: center;
+                margin-top: 20px;
+            }
+            
+            /* Adjust card internals for horizontal layout */
+            .card-section > div, .card-section > button {
+                margin: 0 10px;
+            }
+            .status-info { border-top: none; margin-top: 0; padding-top: 0; }
+        }
+
+        /* Mobile (max-width: 768px) */
+        @media (max-width: 768px) {
+            .product-container {
+                flex-direction: column; /* Stack everything vertically */
+                padding: 20px;
+                gap: 30px;
+            }
+
+            .gallery-section, .info-section, .card-section {
+                width: 100%;
+                flex: auto;
+            }
+
+            .info-section {
+                padding-right: 0;
+            }
+
+            .card-section {
+                flex-direction: column; /* Back to vertical stack for card */
+                align-items: stretch; /* Stretch buttons to full width */
+            }
+
+            .card-section > div, .card-section > button {
+                margin: 0 0 15px 0; /* Reset margins */
+            }
+
+            .main-image {
+                max-width: 100%;
+            }
+
+            .product-title {
+                font-size: 26px;
+                text-align: center;
+            }
+            
+            .rating {
+                text-align: center;
+            }
+
+            .colors {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="container flex-between">
+            <span>+998 90 999 99 99 | Locations</span>
+            <div class="top-links">
+                <a href="about.html">About</a>
+                <a href="checkout.html">Delivery</a>
+                <a href="about.html">Warranty</a>
+                <a href="support.html">Q&A</a>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container flex-between">
+            <div class="logo">Tech <span>House</span></div>
+            
+            <a href="catalog.html">
+
+            </a>
+            <button class="catalog-btn">Catalog</button>
+            
+            <div class="search-container">
+                <input type="text" placeholder="Search...">
+                <button class="search-btn"><img src="/assets/images/Search.png" alt="alt-text" width="22" height="22"></button>
+            </div>
+
+            <div class="nav-icons">
+                <a href="cart.html"><img src="/assets/images/Heart.png" alt="alt-text" width="22" height="22"></a>
+                <a href="cart.html"><img src="/assets/images/Shopping cart.png" alt="alt-text" width="22" height="22"></a>
+                <a href="profile.html"><img src="/assets/images/User.png" alt="alt-text" width="22" height="22"></a>
+            </div>
+        </div>
+    </nav>
+    <div class="sub-nav">
+        <div class="container">
+            <a href="index.html">HOME</a>
+            <a href="support.html">CONTACT US</a>
+            <a href="membership.html">MEMBERSHIP</a>
+            <a href="comparison.html">COMPARE</a>
+            <a href="locations.html">LOCATIONS</a>
+        </div>
+    </div>
+    <div class="product-container">
+        
+        <div class="gallery-section">
+            <div class="main-image-container">
+                <div class="arrow">&#8592;</div>
+                <img src="/assets/images/washingmachine2.webp" class="main-image">
+                <div class="arrow">&#8594;</div>
+            </div>
+            <div class="thumbnails">
+                <img src="/assets/images/washingmachine2.webp" class="thumb">
+                <img src="/assets/images/washingmachine2.webp" class="thumb">
+                <img src="/assets/images/washingmachine2.webp" class="thumb">
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h1 class="product-title">Samsung Washing Machine</h1>
+            <div class="rating">
+                <img src="/assets/images/Icon(5).png" alt="alt-text" width="20">
+                <img src="/assets/images/Icon(5).png" alt="alt-text" width="20">
+                <img src="/assets/images/Icon(5).png" alt="alt-text" width="20">
+                <img src="/assets/images/Icon(5).png" alt="alt-text" width="20">
+                <img src="/assets/images/Icon(5).png" alt="alt-text" width="20"> <span>4.5/5</span>
+            </div>
+
+            <h3 class="section-title">About Product</h3>
+            <div class="specs">
+                <div class="spec-row"><span class="spec-label">Height</span><span class="spec-value">90cm</span></div>
+                <div class="spec-row"><span class="spec-label">Width</span><span class="spec-value">10cm</span></div>
+                <div class="spec-row"><span class="spec-label">Watt</span><span class="spec-value">2000W</span></div>
+                <div class="spec-row"><span class="spec-label">Weight</span><span class="spec-value">45kg</span></div>
+            </div>
+
+            <h3 class="section-title">Choose Color</h3>
+            <div class="colors">
+                <div class="color-dot white" title="White"></div>
+                <div class="color-dot black" title="Black"></div>
+                <div class="color-dot tan" title="Tan"></div>
+            </div>
+        </div>
+
+        <div class="card-section">
+            <div class="price-row">
+                <span class="price-label">Price</span>
+                <div>
+                    <span class="price-value">$999</span>
+                    <span class="discount-value">SAVE $10</span>
+                </div>
+            </div>
+            <a href="checkout.html">
+                <button class="btn-buy">Buy Now</button>
+            </a>
+            
+            <div class="cart-row">
+                <button class="btn-cart">Add to Cart</button>
+                <div class="heart-icon"><img src="/assets/images/Heart.png" alt="alt-text" width="25"></div>
+            </div>
+            
+            <div class="status-info">
+                <div class="status-item">
+                    <span class="status-icon"><img src="/assets/images/Package.png" alt="alt-text" width="29"></span>
+                    <span>In Stock <b>10</b></span>
+                </div>
+                <div class="status-item">
+                    <span class="status-icon"><img src="/assets/images/Truck.png" alt="alt-text" width="25"></span>
+                    <span>Free Delivery For Members</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="product-description">
+        <h3>Description</h3>
+        <p>
+            This innovative solution streamlines your daily tasks with cutting-edge efficiency. Designed for seamless integration, it adapts to your specific needs to save time and boost productivity. Experience reliable performance and intuitive control that simplifies complex processes instantly. Slightly longer with more details Unlock the potential of next-generation technology with a tool built for high performance. Our advanced system ensures stability and speed, helping you achieve more with less effort. 
+        </p>
+    </div>
+
+    <div class="footer">
+        <div class="footer-col">
+            <div class="logo" style="font-size: 20px;">
+                Tech
+                <span style="color: #4CAF50;">House</span>
+            </div>
+            <span>For any type of inquiries</span>
+            <span class="bold-text">+998 90 999 99 99</span>
+            <span>Working Shift</span>
+            <span class="bold-text">Everyday: 08:00 - 00:00</span>
+            <span>Tashkent Center 123 W index-12</span>
+        </div>
+
+        <div class="footer-col">
+            <h3>Categories</h3>
+            <a href="#">Kitchen Appliances</a>
+            <a href="#">Cleaning Appliances</a>
+            <a href="#">Heating and Cooling</a>
+            <a href="#">Personal Care devices</a>
+            <a href="#">Smart Home</a>
+        </div>
+
+        <div class="footer-col">
+            <h3>Company</h3>
+            <a href="#">About Us</a>
+            <a href="#">Product Warranties</a>
+            <a href="#">Special Offers</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Store Locations</a>
+        </div>
+
+        <div class="footer-col">
+            <h3>Social Media</h3>
+            <a href="#">Instagram</a>
+            <a href="#">YouTube</a>
+            <a href="#">Telegram</a>
+            <a href="#">Facebook</a>
+            <a href="#">TikTok</a>
+        </div>
+    </div>
+    <script src="/assets/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - Tech House</title>
+    <link rel="stylesheet" href="/assets/css/style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* --- DESKTOP STYLES (Default) --- */
+        .main-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .info-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between; /* Pushes form left, cards right */
+            align-items: flex-start;
+            gap: 50px; /* Space between Form and Cards */
+        }
+
+        /* --- FORM SECTION --- */
+        .inputs {
+            flex: 1; /* Takes up available space */
+            max-width: 60%; /* Prevents it from getting too wide on huge screens */
+        }
+        
+        .inputs form {
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+            background-color: white;
+            padding: 30px;
+            width: 100%;
+        }
+
+        .inputs input, .inputs textarea {
+            border-radius: 10px;
+            border: none;
+            background-color: #F0F0F6;
+            margin-bottom: 20px;
+            padding: 15px; /* Added padding for text inside inputs */
+            display: block;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        .inputs textarea {
+            resize: none;
+            height: 150px;
+        }
+
+        .inputs input[type=button] {
+            width: 150px;
+            background-color: #30C71D;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-bottom: 0;
+        }
+
+        .inputs input[type=button]:hover {
+            background-color: #25a016;
+        }
+        
+        .inputs h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .inputs form label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        /* --- RIGHT SIDE CARDS --- */
+        .info-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 350px; /* Fixed width for the sidebar on desktop */
+            flex-shrink: 0; /* Prevents sidebar from shrinking */
+        }
+        
+        .info-cards h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .cards {
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            width: 100%;
+            padding: 25px 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .cards:hover {
+            transform: translateY(-5px);
+        }
+
+        .cards img {
+            height: 40px;
+            width: 40px;
+            margin-bottom: 15px;
+            object-fit: contain;
+        }
+
+        .cards .text {
+            color: #000;
+            font-size: 16px;
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+
+        /* --- RESPONSIVE MEDIA QUERIES --- */
+
+        /* Tablet View (max-width: 992px) */
+        @media (max-width: 992px) {
+            .info-container {
+                gap: 30px;
+            }
+            .info-cards {
+                width: 280px; /* Make sidebar slightly smaller */
+            }
+        }
+
+        /* Mobile View (max-width: 768px) */
+        @media (max-width: 768px) {
+            .info-container {
+                flex-direction: column; /* Stack Form on top of Cards */
+                align-items: center; /* Center everything */
+            }
+
+            .inputs {
+                max-width: 100%; /* Form takes full width */
+                width: 100%;
+            }
+
+            .info-cards {
+                width: 100%; /* Sidebar takes full width */
+                flex-direction: row; /* Put the 3 cards in a row if they fit, or... */
+                flex-wrap: wrap; /* ...wrap them if they don't */
+                justify-content: center;
+            }
+
+            .cards {
+                /* On mobile, maybe make cards smaller or full width? */
+                /* Let's make them flex to fill space */
+                flex: 1; 
+                min-width: 250px; /* Don't get smaller than this */
+            }
+            
+            /* Center the titles */
+            .inputs h1, .info-cards h2 {
+                text-align: center;
+            }
+        }
+
+        /* Small Mobile (max-width: 480px) */
+        @media (max-width: 480px) {
+            .inputs form {
+                padding: 20px; /* Less padding on small screens */
+            }
+            
+            .info-cards {
+                flex-direction: column; /* Stack cards vertically again on tiny screens */
+            }
+
+            .cards {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="container flex-between">
+            <span>+998 90 999 99 99 | Locations</span>
+            <div class="top-links">
+                <a href="about.html">About</a>
+                <a href="checkout.html">Delivery</a>
+                <a href="about.html">Warranty</a>
+                <a href="support.html">Q&A</a>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container flex-between">
+            <div class="logo">Tech <span>House</span></div>
+            
+            <a href="catalog.html">
+                <button class="catalog-btn">Catalog</button>
+            </a>
+            
+            <div class="search-container">
+                <input type="text" placeholder="Search...">
+                <button class="search-btn"><img src="/assets/images/Search.png" alt="" width="22" height="22"></button>
+            </div>
+
+            <div class="nav-icons">
+                <a href="cart.html"><img src="/assets/images/Heart.png" alt="" width="22" height="22"></a>
+                <a href="cart.html"><img src="/assets/images/Shopping cart.png" alt="" width="22" height="22"></a>
+                <a href="profile.html"><img src="/assets/images/User.png" alt="" width="22" height="22"></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="sub-nav">
+        <div class="container">
+            <a href="index.html">HOME</a>
+            <a href="support.html">CONTACT US</a>
+            <a href="membership.html">MEMBERSHIP</a>
+            <a href="comparison.html">COMPARE</a>
+            <a href="locations.html">LOCATIONS</a>
+        </div>
+    </div>
+    <div class="main-container">
+            <div class="info-container">
+                
+                <div class="inputs">
+                    <h1>Leave Us Your Info</h1> 
+                    <form action="/">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" placeholder="John Doe">
+                        
+                        <label for="email">Your Email</label>
+                        <input type="text" id="email" placeholder="john@example.com">
+                        
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" placeholder="Order Inquiry">
+                        
+                        <label for="msg">Leave Us a Message</label>
+                        <textarea name="msg" id="msg" placeholder="Type your message here..."></textarea>
+                        
+                        <input type="button" value="SEND MESSAGE">
+                    </form>
+                </div>
+
+                <div class="info-cards">
+                    <h2>Contact Information</h2> <div class="cards">
+                        <img src="/assets/images/Phone call.jpg" alt="Call">
+                        <div class="txt-cont">
+                            <div class="text">
+                                <div>Call Us</div>
+                                <div style="color: #666; font-weight: normal; font-size: 14px;">+998-99-123-45-67</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cards">
+                        <img src="/assets/images/mark_email_unread.png" alt="Email">
+                        <div class="txt-cont">
+                            <div class="text">
+                                <div>Email Us</div>
+                                <div style="color: #666; font-weight: normal; font-size: 14px;">TechHouse@example.com</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cards">
+                        <img src="/assets/images/mark_email_unread.png" alt="Telegram">
+                        <div class="txt-cont">
+                            <div class="text">
+                                <div>Via Telegram</div>
+                                <div style="color: #666; font-weight: normal; font-size: 14px;">t.me/@techhouse</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-col">
+            <div class="logo" style="font-size: 20px;">
+                Tech<br><span style="color: #32CD32;">House</span>
+            </div>
+            <span>For any type of inquiries</span>
+            <span class="bold-text">+998 90 999 99 99</span>
+            <span>Working Shift</span>
+            <span class="bold-text">Everyday: 08:00 - 00:00</span>
+            <span>Tashkent Center 123 W index-12</span>
+        </div>
+
+        <div class="footer-col">
+            <h3>Categories</h3>
+            <a href="#">Kitchen Appliances</a>
+            <a href="#">Cleaning Appliances</a>
+            <a href="#">Heating and Cooling</a>
+            <a href="#">Personal Care devices</a>
+            <a href="#">Smart Home</a>
+        </div>
+
+        <div class="footer-col">
+            <h3>Company</h3>
+            <a href="#">About Us</a>
+            <a href="#">Product Warranties</a>
+            <a href="#">Special Offers</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Store Locations</a>
+        </div>
+
+        <div class="footer-col">
+            <h3>Social Media</h3>
+            <a href="#">Instagram</a>
+            <a href="#">YouTube</a>
+            <a href="#">Telegram</a>
+            <a href="#">Facebook</a>
+            <a href="#">TikTok</a>
+        </div>
+    </div>
+    <script src="/assets/js/script.js"></script>
+</body>
+</html>
