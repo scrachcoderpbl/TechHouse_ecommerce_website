@@ -1,17 +1,17 @@
 // Products array
 const products = [
-  { id: 1, name: 'Oven', category: 'Kitchen', price: 299, image: '/assets/images/oven.avif', thumbs: ['/assets/images/oven.avif', '/assets/images/oven.avif', '/assets/images/oven.avif'], specs: { height: '90cm', width: '60cm', watt: '2000W', weight: '45kg' }, stock: 10 },
-  { id: 2, name: 'Fridge', category: 'Kitchen', price: 499, image: '/assets/images/fridge.jpeg', thumbs: ['/assets/images/fridge.jpeg', '/assets/images/fridge.jpeg', '/assets/images/fridge.jpeg'], specs: { height: '180cm', width: '70cm', watt: '150W', weight: '80kg' }, stock: 10 },
-  { id: 3, name: 'Laptop', category: 'Smart Home', price: 799, image: '/assets/images/laptop.jpeg', thumbs: ['/assets/images/laptop.jpeg', '/assets/images/laptop.jpeg', '/assets/images/laptop.jpeg'], specs: { height: '2cm', width: '35cm', watt: '65W', weight: '1.5kg' }, stock: 10 },
-  { id: 4, name: 'Vacuum Cleaner', category: 'Cleaning', price: 149, image: '/assets/images/vacuum.jpeg', thumbs: ['/assets/images/vacuum.jpeg', '/assets/images/vacuum.jpeg', '/assets/images/vacuum.jpeg'], specs: { height: '100cm', width: '30cm', watt: '1200W', weight: '5kg' }, stock: 10 },
-  { id: 5, name: 'Washing Machine', category: 'Kitchen', price: 299, image: '/assets/images/Rectangle 19(3).png', thumbs: ['/assets/images/Rectangle 19(3).png', '/assets/images/Rectangle 19(3).png', '/assets/images/Rectangle 19(3).png'], specs: { height: '85cm', width: '60cm', watt: '1800W', weight: '70kg' }, stock: 10 },
-  { id: 6, name: 'Samsung TV', category: 'Smart Home', price: 399, image: '/assets/images/Rectangle 15.png', thumbs: ['/assets/images/Rectangle 15.png', '/assets/images/Rectangle 15.png', '/assets/images/Rectangle 15.png'], specs: { height: '50cm', width: '100cm', watt: '100W', weight: '10kg' }, stock: 10 },
-  { id: 7, name: 'Air Conditioner', category: 'Cooling', price: 167, image: '/assets/images/Rectangle 45.png', thumbs: ['/assets/images/Rectangle 45.png', '/assets/images/Rectangle 45.png', '/assets/images/Rectangle 45.png'], specs: { height: '30cm', width: '90cm', watt: '1500W', weight: '25kg' }, stock: 10 },
-  { id: 8, name: 'Smart Thermostat', category: 'Smart Home', price: 199, image: '/assets/images/RTH2CWF-c2-6_b9e91b8a-aac4-4a89-9b97-dfc35bd2cb05.webp', thumbs: ['/assets/images/RTH2CWF-c2-6_b9e91b8a-aac4-4a89-9b97-dfc35bd2cb05.webp', '/assets/images/RTH2CWF-c2-6_b9e91b8a-aac4-4a89-9b97-dfc35bd2cb05.webp', '/assets/images/RTH2CWF-c2-6_b9e91b8a-aac4-4a89-9b97-dfc35bd2cb05.webp'], specs: { height: '10cm', width: '10cm', watt: '5W', weight: '0.3kg' }, stock: 10 },
-  { id: 9, name: 'Hair Dryer', category: 'Personal Care', price: 49, image: '/assets/images/haridryer.jpeg', thumbs: ['/assets/images/haridryer.jpeg', '/assets/images/haridryer.jpeg', '/assets/images/haridryer.jpeg'], specs: { height: '25cm', width: '10cm', watt: '1800W', weight: '0.6kg' }, stock: 10 },
-  { id: 10, name: 'Microwave', category: 'Kitchen', price: 99, image: '/assets/images/microwave.webp', thumbs: ['/assets/images/microwave.webp', '/assets/images/microwave-interior.webp', '/assets/images/microwave-controls.webp'], specs: { height: '30cm', width: '50cm', watt: '1000W', weight: '15kg' }, stock: 10 },
-  { id: 11, name: 'Fan', category: 'Cooling', price: 29, image: '/assets/images/fan.jpeg', thumbs: ['/assets/images/fan.jpeg', '/assets/images/fan-blades.jpeg', '/assets/images/fan-base.jpeg'], specs: { height: '120cm', width: '40cm', watt: '50W', weight: '4kg' }, stock: 10 },
-  { id: 12, name: 'Electric Blanket', category: 'Heating', price: 79, image: '/assets/images/blanket.jpeg', thumbs: ['/assets/images/blanket.jpeg', '/assets/images/blanket-controls.jpeg', '/assets/images/blanket-folded.jpeg'], specs: { height: '150cm', width: '130cm', watt: '100W', weight: '2kg' }, stock: 10 },
+  { id: 1, name: 'Oven', category: 'Kitchen', price: 299, image: 'images/oven.avif', thumbs: ['images/oven.avif', 'images/oven.avif', 'images/oven.avif'], specs: { height: '90cm', width: '60cm', watt: '2000W', weight: '45kg' }, stock: 10 },
+  { id: 2, name: 'Fridge', category: 'Kitchen', price: 499, image: 'images/fridge.jpeg', thumbs: ['images/fridge.jpeg', 'images/fridge.jpeg', 'images/fridge.jpeg'], specs: { height: '180cm', width: '70cm', watt: '150W', weight: '80kg' }, stock: 10 },
+  { id: 3, name: 'Laptop', category: 'Smart Home', price: 799, image: 'images/laptop.jpeg', thumbs: ['images/laptop.jpeg', 'images/laptop.jpeg', 'images/laptop.jpeg'], specs: { height: '2cm', width: '35cm', watt: '65W', weight: '1.5kg' }, stock: 10 },
+  { id: 4, name: 'Vacuum Cleaner', category: 'Cleaning', price: 149, image: 'images/vacuum.jpeg', thumbs: ['images/vacuum.jpeg', 'images/vacuum.jpeg', 'images/vacuum.jpeg'], specs: { height: '100cm', width: '30cm', watt: '1200W', weight: '5kg' }, stock: 10 },
+  { id: 5, name: 'Washing Machine', category: 'Kitchen', price: 299, image: 'images/Rectangle 19(3).png', thumbs: ['images/Rectangle 19(3).png', 'images/Rectangle 19(3).png', 'images/Rectangle 19(3).png'], specs: { height: '85cm', width: '60cm', watt: '1800W', weight: '70kg' }, stock: 10 },
+  { id: 6, name: 'Samsung TV', category: 'Smart Home', price: 399, image: 'images/Rectangle 15.png', thumbs: ['images/Rectangle 15.png', 'images/Rectangle 15.png', 'images/Rectangle 15.png'], specs: { height: '50cm', width: '100cm', watt: '100W', weight: '10kg' }, stock: 10 },
+  { id: 7, name: 'Air Conditioner', category: 'Cooling', price: 167, image: 'images/Rectangle 45.png', thumbs: ['images/Rectangle 45.png', 'images/Rectangle 45.png', 'images/Rectangle 45.png'], specs: { height: '30cm', width: '90cm', watt: '1500W', weight: '25kg' }, stock: 10 },
+  { id: 8, name: 'Smart Thermostat', category: 'Smart Home', price: 199, image: 'images/RTH2CWF-c2-6_b9e91b8a-aac4-4a89-9b97-dfc35bd2cb05.webp', thumbs: ['images/RTH2CWF-c2-6_b9e91b8a-aac4-4a89-9b97-dfc35bd2cb05.webp', 'images/RTH2CWF-c2-6_b9e91b8a-aac4-4a89-9b97-dfc35bd2cb05.webp', 'images/RTH2CWF-c2-6_b9e91b8a-aac4-4a89-9b97-dfc35bd2cb05.webp'], specs: { height: '10cm', width: '10cm', watt: '5W', weight: '0.3kg' }, stock: 10 },
+  { id: 9, name: 'Hair Dryer', category: 'Personal Care', price: 49, image: 'images/haridryer.jpeg', thumbs: ['images/haridryer.jpeg', 'images/haridryer.jpeg', 'images/haridryer.jpeg'], specs: { height: '25cm', width: '10cm', watt: '1800W', weight: '0.6kg' }, stock: 10 },
+  { id: 10, name: 'Microwave', category: 'Kitchen', price: 99, image: 'images/microwave.webp', thumbs: ['images/microwave.webp', 'images/microwave-interior.webp', 'images/microwave-controls.webp'], specs: { height: '30cm', width: '50cm', watt: '1000W', weight: '15kg' }, stock: 10 },
+  { id: 11, name: 'Fan', category: 'Cooling', price: 29, image: 'images/fan.jpeg', thumbs: ['images/fan.jpeg', 'images/fan-blades.jpeg', 'images/fan-base.jpeg'], specs: { height: '120cm', width: '40cm', watt: '50W', weight: '4kg' }, stock: 10 },
+  { id: 12, name: 'Electric Blanket', category: 'Heating', price: 79, image: 'images/blanket.jpeg', thumbs: ['images/blanket.jpeg', 'images/blanket-controls.jpeg', 'images/blanket-folded.jpeg'], specs: { height: '150cm', width: '130cm', watt: '100W', weight: '2kg' }, stock: 10 },
 ];
 
 // Helpers
@@ -24,7 +24,7 @@ function saveCart(cart) {
 }
 
 function updateCartBadge() {
-  const cartLink = document.querySelector('a[href="cart.html"]:has(img[src="/assets/images/Shopping cart.png"])');
+  const cartLink = document.querySelector('a[href="cart.html"]:has(img[src="images/Shopping cart.png"])');
   if (cartLink && !cartLink.querySelector('.badge')) {
     const badge = document.createElement('span');
     badge.classList.add('badge');
@@ -55,7 +55,7 @@ function displayProducts(filteredProducts, container) {
       <h3 class="prod-title">${product.name}</h3>
       <div class="price-row">
         <span class="price">$${product.price}</span>
-        <span class="star"><img src="/assets/images/Icon(5).png" alt=""></span> <span style="color: grey;">4.5/5</span>
+        <span class="star"><img src="images/Icon(5).png" alt=""></span> <span style="color: grey;">4.5/5</span>
       </div>
       <button class="btn" data-product-id="${product.id}">Add to Cart</button>
     ` : `
@@ -64,7 +64,7 @@ function displayProducts(filteredProducts, container) {
       <h3 class="product-name">${product.name}</h3>
       <div class="review">
         <p class="price">$${product.price}</p>
-        <ul><li><img src="/assets/images/Icon(2).png" alt="" width="20" height="20"></li><span>4.5/5</span></ul>
+        <ul><li><img src="images/Icon(2).png" alt="" width="20" height="20"></li><span>4.5/5</span></ul>
       </div>
       <button class="add-btn" data-product-id="${product.id}">Add to Cart</button>
     `;
