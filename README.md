@@ -2,9 +2,8 @@
 
 This repository contains the source code for the TechHouse website project.
 
-The fully launched and deployed version of the website is available here:
+The fully launched and deployed version of the website is available [here](https://scrachcoderpbl.github.io/TechHouse_ecommerce_website/)
 
-https://techhouse250498.netlify.app/
 
 The live version represents the current stable release of the project.
 
